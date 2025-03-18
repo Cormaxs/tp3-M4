@@ -1,0 +1,6 @@
+@import "bootstrap-icons";
+@import "tailwindcss";
+
+:root{
+    --fondo: #727272c4;
+}
