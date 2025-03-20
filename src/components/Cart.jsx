@@ -7,6 +7,14 @@ export function Carrito() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { isDarkMode } = useContext(ColorContext); // Obtener el estado del modo oscuro
 
+  console.log("Carrito:", cart);
+  console.log("Precio Total:", totalPrice);
+
+  // Verificar si totalPrice es un número válido
+  const formattedTotalPrice = typeof totalPrice === "number" 
+    ? totalPrice.toLocaleString("es-AR", { style: "currency", currency: "ARS" }) 
+    : "Error: Precio no disponible";
+
   return (
     <div className="container mx-auto p-6">
       {/* Botón para abrir/cerrar el carrito */}
@@ -121,7 +129,22 @@ export function Carrito() {
                       type="number"
                       id={`quantity-${producto.id}`}
                       value={producto.quantity}
-                      onChange={(e) => updateQuantity(producto.id, parseInt(e.target.value))}
+                      onChange={(e) => {
+                        const newQuantity = parseInt(e.target.value);
+
+                        // Si el valor es menor a 1, establecerlo en 1
+                        if (newQuantity < 1) {
+                          updateQuantity(producto.id, 1);
+                        } 
+                        // Si el valor es 0, eliminar el producto
+                        else if (newQuantity === 0) {
+                          removeFromCart(producto.id);
+                        } 
+                        // De lo contrario, actualizar la cantidad
+                        else {
+                          updateQuantity(producto.id, newQuantity);
+                        }
+                      }}
                       min="1"
                       className="w-16 px-2 py-1 border rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-green-600"
                     />
@@ -142,7 +165,7 @@ export function Carrito() {
           {/* Precio total del carrito */}
           <div className={`mt-8 p-6 ${isDarkMode ? "bg-gray-700" : "bg-gray-50"} rounded-lg`}>
             <h3 className="text-xl font-bold">
-              Total: <span className="text-green-600">${totalPrice.toLocaleString("es-AR")}</span>
+              Total: <span className="text-green-600">{formattedTotalPrice}</span>
             </h3>
           </div>
         </div>

@@ -1,17 +1,12 @@
-# TP3 - Módulo 4
+# React + Vite
 
-¡Bienvenido al repositorio del TP3 del Módulo 4! Este proyecto es una aplicación web desarrollada con [React](https://reactjs.org) y desplegada en [Vercel](https://vercel.com). A continuación, encontrarás toda la información necesaria para entender y explorar el proyecto.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## � Sitio desplegado
+Currently, two official plugins are available:
 
-Puedes ver el sitio en vivo aquí:  
-👉 [https://tp3-m4.vercel.app/](https://tp3-m4.vercel.app/)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
----
+## Expanding the ESLint configuration
 
-## 📝 Descripción del proyecto
-
-Este proyecto es parte de un trabajo práctico del Módulo 4. Consiste en una aplicación web desarrollada con **React** que usa React, useContext, useState y useEffect para hacer un carrito de compras.
-
----
-
+If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

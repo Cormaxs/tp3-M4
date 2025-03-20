@@ -50,7 +50,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeAllCart = () =>{
-    localStorage.clear();
+    localStorage.removeItem("cart");
     setCart([]);
   }
   //  Calcular el precio total del carrito

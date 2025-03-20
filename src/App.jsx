@@ -16,7 +16,7 @@ function App() {
 
 // Componente separado para el contenido principal
 function MainContent() {
-  // Usa el contexto dentro de un componente funcional
+  // Usa el contexto
   const { isDarkMode } = useContext(ColorContext);
   return (
     <main className={`min-h-screen p-6 ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
